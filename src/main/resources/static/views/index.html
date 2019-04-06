@@ -1,0 +1,72 @@
+<html ng-app = "chatApp">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<script src = "js/mainApp.js"></script>
+<script src = "js/CharAppController.js"></script>
+<script>
+var divItems = document.getElementsByClassName("friend");
+	
+	function selected(item) {
+		this.clear();
+		item.style.backgroundColor = 'red';
+	}
+
+	function clear() {
+		for(var i=0; i < divItems.length; i++) {
+			var item = divItems[i];
+			item.style.backgroundColor = 'white';
+		}
+	}
+</script>	
+<style>
+#f {    
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x:hidden;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.friend{
+	padding: 20px 50px 20px;
+	border-style: inset;
+	border-width: 2px;
+	border-color: #9999ff;	
+}
+
+</style>
+<body ng-controller = "ctrl">
+	<div class = "container-fluid">
+		<div class = "row">
+		
+			<div id = "f" class="col-xl-3" style="">
+				<div ng-repeat = "friend in friends">
+					<a href = "#"><div class = "friend" onclick=selected(this)>{{friend.friendName}}</div></a>
+				</div>
+			</div>
+			<div class="col-xl-9" style="background-color:lavenderblush;">.col-xl-3</div>
+		</div>
+	</div>
+</body>
+</html>
